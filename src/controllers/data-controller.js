@@ -1,4 +1,4 @@
-import * as fs from './firestore';
+import * as fs from '../database/firestore';
 
 // adds user to firestore
 // req.body = { name: the name of user }

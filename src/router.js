@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import * as f from './controller';
+import * as f from './controllers/data-controller';
+import * as mail from './controllers/mail-controller';
 
 const router = Router();
 
@@ -32,5 +33,8 @@ router.route('/check/:username')
 router.route('/tracking/:username')
   .post(f.addTrackingNumberToUser)
   .delete(f.removeTrackingNumberFromUser);
+
+router.route('/getTracking/')
+  .get(mail.getUPS);
 
 export default router;

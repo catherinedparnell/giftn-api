@@ -4,7 +4,7 @@ import * as fs from './firestore';
 // req.body = { name: the name of user }
 export const addUser = (req, res) => {
   fs.addUser(req.params.username, req.body.name)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -14,7 +14,7 @@ export const addUser = (req, res) => {
 // req.body = { gift: { name: the name, price: the price, link: the link, id: unique id } }
 export const addGiftToPerson = (req, res) => {
   fs.addGiftToPerson(req.params.personID, req.body.gift)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -24,7 +24,7 @@ export const addGiftToPerson = (req, res) => {
 // req.body = { giftID: this gift ID}
 export const removeGiftFromPerson = (req, res) => {
   fs.removeGiftFromPerson(req.params.personID, req.body.giftID)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -46,7 +46,7 @@ export const addPersonToUser = (req, res) => {
 // req.body = { personID: the person ID}
 export const removePersonFromUser = (req, res) => {
   fs.removePersonFromUser(req.params.username, req.body.personID)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -56,7 +56,7 @@ export const removePersonFromUser = (req, res) => {
 // req.body = { personID: the person ID}
 export const buyGift = (req, res) => {
   fs.buyGift(req.body.personID, req.params.giftID)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -66,7 +66,7 @@ export const buyGift = (req, res) => {
 // req.body = { personID: the person ID}
 export const wishlistGift = (req, res) => {
   fs.wishlistGift(req.body.personID, req.params.giftID)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -76,7 +76,7 @@ export const wishlistGift = (req, res) => {
 // req.body = { budget: 100}
 export const updateBudget = (req, res) => {
   fs.updateBudget(req.params.username, req.body.budget)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -112,7 +112,7 @@ export const checkUser = (req, res) => {
 // req.body = { trackingNumberObject: { trackingNumber, note, person } }
 export const addTrackingNumberToUser = (req, res) => {
   fs.addTrackingNumberToUser(req.params.username, req.body.trackingNumberObject)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });
@@ -122,7 +122,7 @@ export const addTrackingNumberToUser = (req, res) => {
 // req.body = { trackingNumber: tracking number }
 export const removeTrackingNumberFromUser = (req, res) => {
   fs.removeTrackingNumberFromUser(req.params.username, req.body.trackingNumber)
-    .then(res.send({ message: 'this worked' }))
+    .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
       console.log(e);
     });

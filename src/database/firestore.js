@@ -40,7 +40,7 @@ export async function checkUser(username) {
 //     name: 'name',
 // }
 export async function addPersonToUser(username, person) {
-  const ref = await db.collection('people').add(person)
+  const ref = await db.collection('people').doc(person.id).set(person)
     .catch((e) => {
       console.log(e);
     });

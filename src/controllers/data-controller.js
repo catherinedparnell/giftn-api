@@ -31,7 +31,7 @@ export const removeGiftFromPerson = (req, res) => {
 };
 
 // returns id of new person
-// req.body = { person: { giftInfo: {}, name: their name } }
+// req.body = { person: { giftInfo: {}, name: their name, id: id } }
 export const addPersonToUser = (req, res) => {
   fs.addPersonToUser(req.params.username, req.body.person)
     .then((result) => {

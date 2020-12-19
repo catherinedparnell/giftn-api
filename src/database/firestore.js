@@ -38,6 +38,7 @@ export async function checkUser(username) {
 // const person = {
 //     giftInfo: {},
 //     name: 'name',
+//     id: id,
 // }
 export async function addPersonToUser(username, person) {
   const ref = await db.collection('people').doc(person.id).set(person)

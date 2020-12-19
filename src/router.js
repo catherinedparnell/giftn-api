@@ -26,4 +26,7 @@ router.route('/user/:username')
   .post(f.addUser)
   .get(f.getUser);
 
+router.route('/check/:username')
+  .get(f.checkUser);
+
 export default router;

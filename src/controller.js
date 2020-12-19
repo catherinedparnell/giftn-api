@@ -86,3 +86,15 @@ export const getUser = (req, res) => {
       console.log(e);
     });
 };
+
+// checks if user exists
+export const checkUser = (req, res) => {
+  fs.checkUser(req.params.username)
+    .then((result) => {
+      console.log(result);
+      res.send(result);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};

@@ -20,6 +20,18 @@ export async function addUser(username, name) {
   await db.collection('users').doc(username).set(user);
 }
 
+export async function checkUser(username) {
+  const usersRef = db.collection('users').doc(username);
+  const userRes = await usersRef.get()
+    .then((doc) => {
+      return doc.exists;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  return userRes;
+}
+
 // add person to user: takes username and person object!
 // person looks like this:
 // const person = {
@@ -130,5 +142,21 @@ export async function wishlistGift(personID, giftID) {
 }
 
 // add tracking number to user
+export async function addTrackingNumberToUser(username, trackingNumber) {
+  const userRef = db.collection('users').doc(username);
+  const unionRes = await userRef.update({
+    people: admin.firestore.FieldValue.arrayUnion(trackingNumber),
+  })
+    .catch((e) => {
+      console.log(e);
+    });
+  return unionRes;
+}
 
 // delete tracking number from user
+export async function removeTrackingNumberFromUser(username, trackingNumberID) {
+  const userRef = db.collection('users').doc(username);
+  await userRef.update({
+    people: admin.firestore.FieldValue.arrayRemove(trackingNumberID),
+  });
+}

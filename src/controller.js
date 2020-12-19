@@ -1,25 +1,27 @@
 import * as fs from './firestore';
 
+// adds user to firestore
+// req.body = { name: the name of user }
 export const addUser = (req, res) => {
   fs.addUser(req.params.username, req.body.name)
-    .then(() => { return console.log('added successfully'); })
+    .then(res.send({ message: 'this worked' }))
     .catch((e) => {
       console.log(e);
     });
 };
 
 // returns id of new gift
+// req.body = { gift: { name: the name, price: the price, link: the link, id: unique id } }
 export const addGiftToPerson = (req, res) => {
   fs.addGiftToPerson(req.params.personID, req.body.gift)
-    .then(() => {
-      console.log('wrote gift');
-    })
+    .then(res.send({ message: 'this worked' }))
     .catch((e) => {
       console.log(e);
     });
 };
 
 // takes personID in params, giftID in body
+// req.body = { giftID: this gift ID}
 export const removeGiftFromPerson = (req, res) => {
   fs.removeGiftFromPerson(req.params.personID, req.body.giftID)
     .then(res.send({ message: 'this worked' }))
@@ -29,8 +31,8 @@ export const removeGiftFromPerson = (req, res) => {
 };
 
 // returns id of new person
+// req.body = { person: { giftInfo: {}, name: their name } }
 export const addPersonToUser = (req, res) => {
-  console.log(req.params.username, req.body);
   fs.addPersonToUser(req.params.username, req.body.person)
     .then((result) => {
       res.send(result);
@@ -40,6 +42,8 @@ export const addPersonToUser = (req, res) => {
     });
 };
 
+// remove person from user
+// req.body = { personID: the person ID}
 export const removePersonFromUser = (req, res) => {
   fs.removePersonFromUser(req.params.username, req.body.personID)
     .then(res.send({ message: 'this worked' }))
@@ -49,33 +53,37 @@ export const removePersonFromUser = (req, res) => {
 };
 
 // add flag to gift in gift info if bought
+// req.body = { personID: the person ID}
 export const buyGift = (req, res) => {
   fs.buyGift(req.body.personID, req.params.giftID)
-    .then(console.log('gift marked as bought'))
+    .then(res.send({ message: 'this worked' }))
     .catch((e) => {
       console.log(e);
     });
 };
 
 // remove flag from gift if bought
+// req.body = { personID: the person ID}
 export const wishlistGift = (req, res) => {
   fs.wishlistGift(req.body.personID, req.params.giftID)
-    .then(console.log('gift marked as not bought'))
+    .then(res.send({ message: 'this worked' }))
     .catch((e) => {
       console.log(e);
     });
 };
 
 // add/update budget in user
+// req.body = { budget: 100}
 export const updateBudget = (req, res) => {
   fs.updateBudget(req.params.username, req.body.budget)
-    .then(console.log('budget set'))
+    .then(res.send({ message: 'this worked' }))
     .catch((e) => {
       console.log(e);
     });
 };
 
 // returns user
+// no req.body
 export const getUser = (req, res) => {
   fs.getUser(req.params.username)
     .then((result) => {
@@ -88,12 +96,33 @@ export const getUser = (req, res) => {
 };
 
 // checks if user exists
+// no req.body
 export const checkUser = (req, res) => {
   fs.checkUser(req.params.username)
     .then((result) => {
       console.log(result);
       res.send(result);
     })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+// adds tracking number to user
+// req.body = { trackingNumberObject: { trackingNumber, note, person } }
+export const addTrackingNumberToUser = (req, res) => {
+  fs.addTrackingNumberToUser(req.params.username, req.body.trackingNumberObject)
+    .then(res.send({ message: 'this worked' }))
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+// removes tracking number from user
+// req.body = { trackingNumber: tracking number }
+export const removeTrackingNumberFromUser = (req, res) => {
+  fs.removeTrackingNumberFromUser(req.params.username, req.body.trackingNumber)
+    .then(res.send({ message: 'this worked' }))
     .catch((e) => {
       console.log(e);
     });

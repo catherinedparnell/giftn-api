@@ -20,6 +20,7 @@ export async function addUser(username, name) {
   await db.collection('users').doc(username).set(user);
 }
 
+// checks if user with username exists!
 export async function checkUser(username) {
   const usersRef = db.collection('users').doc(username);
   const userRes = await usersRef.get()
@@ -141,22 +142,27 @@ export async function wishlistGift(personID, giftID) {
   });
 }
 
-// add tracking number to user
-export async function addTrackingNumberToUser(username, trackingNumber) {
+// add tracking number to user!
+// const trackingNumberObject = {
+//      trackingNumber: a valid tracking number,
+//      note: a note about what gifts it is,
+//      person: person's name
+// }
+export async function addTrackingNumberToUser(username, trackingNumberObject) {
   const userRef = db.collection('users').doc(username);
-  const unionRes = await userRef.update({
-    people: admin.firestore.FieldValue.arrayUnion(trackingNumber),
-  })
-    .catch((e) => {
-      console.log(e);
-    });
-  return unionRes;
+  await userRef.update({
+    [`trackingNumbers.${trackingNumberObject.trackingNumber}`]: {
+      note: trackingNumberObject.note,
+      person: trackingNumberObject.person,
+    },
+  });
 }
 
-// delete tracking number from user
+// delete tracking number from user!
+// trackingNumber = a valid tracking number
 export async function removeTrackingNumberFromUser(username, trackingNumberID) {
   const userRef = db.collection('users').doc(username);
   await userRef.update({
-    people: admin.firestore.FieldValue.arrayRemove(trackingNumberID),
+    [`trackingNumbers.${trackingNumberID}`]: admin.firestore.FieldValue.delete(),
   });
 }

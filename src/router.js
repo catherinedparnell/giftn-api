@@ -29,4 +29,8 @@ router.route('/user/:username')
 router.route('/check/:username')
   .get(f.checkUser);
 
+router.route('/tracking/:username')
+  .post(f.addTrackingNumberToUser)
+  .delete(f.removeTrackingNumberFromUser);
+
 export default router;

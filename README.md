@@ -1,9 +1,9 @@
-# giftn API
+![giftn Logo](/images/logo.png)
+
+# API Reference
 
 This pandemic is stressful enough without holiday shopping! **giftn** is an all-in-one application allowing users to easily track their gift lists, budgeting, and package deliveries.
 We want to make planning for COVID-Holidays feel like a breeze.
-
-![giftn Logo](/images/logo.png)
 
 ## Services
 This API was built to handle CRUD operations to and from Google Cloud's Cloud Firestore database, as well as make API calls to external companies to get tracking number related information through the [UPS Tracking API](https://www.ups.com/us/en/services/technology-integration/online-tools-tracking.page?) and send auto-generated emails with a personal twist using [MailGrid](https://www.mailgun.com/). It services **giftn's** web app and Chrome extension.
@@ -56,3 +56,4 @@ This API was built to handle CRUD operations to and from Google Cloud's Cloud Fi
 * `/mail/`
 
   PUT - send automated email `req.body = { toAddress: recipient, fromName: name of who it's from, message: personalized note }` (for now)
+ 

@@ -1,13 +1,17 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
 
+const mailgun = require('mailgun-js');
+
 dotenv.config({ silent: true });
 
 const UPS_API = 'https://onlinetools.ups.com/track/v1/details/';
+const DOMAIN = 'sandboxeeb6421cbae5482caa88da7f55ffd5ee.mailgun.org';
 // const trackingNumberTest = 572254454;
 const trackingNumberTest2 = '1Z5338FF0107231059';
 
-// eslint-disable-next-line import/prefer-default-export
+// gets UPS status information (cannot demo because we don't actually have tracking numbers)
+// no req.body
 export const getUPS = (req, res) => {
   axios.get(`${UPS_API}${trackingNumberTest2}`, {
     headers: { AccessLicenseNumber: process.env.UPS_ACCESS_KEY },
@@ -22,4 +26,20 @@ export const getUPS = (req, res) => {
     .catch((e) => {
       console.log(e);
     });
+};
+
+// sends automated email from mailgun
+// req.body = { toAddress: recipient, fromName: name of who it's from, message: personalized note }
+export const sendEmail = (req, res) => {
+  const mg = mailgun({ apiKey: process.env.MAILGUN_API, domain: DOMAIN });
+  const data = {
+    from: 'Giftn <postmaster@sandboxeeb6421cbae5482caa88da7f55ffd5ee.mailgun.org>',
+    to: req.body.toAddress,
+    subject: `Your friend ${req.body.fromName} sent you a gift!`,
+    text: `Testing some Mailgun awesomness! Teehee ${req.body.message}`,
+  };
+  mg.messages().send(data, (error, body) => {
+    console.log(body);
+    res.send({ message: body });
+  });
 };

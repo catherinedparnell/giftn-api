@@ -37,4 +37,7 @@ router.route('/tracking/:username')
 router.route('/getTracking/')
   .get(mail.getUPS);
 
+router.route('/mail/')
+  .put(mail.sendEmail);
+
 export default router;

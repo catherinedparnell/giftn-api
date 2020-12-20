@@ -36,7 +36,7 @@ export const sendEmail = (req, res) => {
     from: 'Giftn <postmaster@sandboxeeb6421cbae5482caa88da7f55ffd5ee.mailgun.org>',
     to: req.body.toAddress,
     subject: `Your friend ${req.body.fromName} sent you a gift!`,
-    text: `Testing some Mailgun awesomness! Teehee ${req.body.message}`,
+    html: `Testing some Mailgun awesomness! Teehee ${req.body.message}`,
   };
   mg.messages().send(data, (error, body) => {
     console.log(body);

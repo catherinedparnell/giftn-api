@@ -115,6 +115,7 @@ export const checkUser = (req, res) => {
 // adds tracking number to user
 // req.body = { trackingNumberObject: { trackingNumber, note, person } }
 export const addTrackingNumberToUser = (req, res) => {
+  console.log(req.body);
   fs.addTrackingNumberToUser(req.params.username, req.body.trackingNumberObject)
     .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {
@@ -125,6 +126,7 @@ export const addTrackingNumberToUser = (req, res) => {
 // removes tracking number from user
 // req.body = { trackingNumber: tracking number }
 export const removeTrackingNumberFromUser = (req, res) => {
+  console.log(req.body);
   fs.removeTrackingNumberFromUser(req.params.username, req.body.trackingNumber)
     .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {

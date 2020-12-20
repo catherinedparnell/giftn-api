@@ -1,8 +1,16 @@
+import dotenv from 'dotenv';
+
 const admin = require('firebase-admin');
+
+dotenv.config({ silent: true });
 
 // initializing firestore database
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
+  credential: admin.credential.cert({
+    private_key: process.env.FIREBASE_PRIVATE_KEY,
+    client_email: process.env.FIREBASE_CLIENT_EMAIL,
+    project_id: 'giftn-a1b43',
+  }),
   databaseURL: 'https://giftn.firebaseio.com',
 });
 const db = admin.firestore();

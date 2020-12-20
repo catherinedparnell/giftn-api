@@ -10,11 +10,11 @@ router.get('/', (req, res) => {
 
 router.route('/personGift/:personID')
   .post(f.addGiftToPerson)
-  .delete(f.removeGiftFromPerson);
+  .put(f.removeGiftFromPerson);
 
 router.route('/person/:username')
   .post(f.addPersonToUser)
-  .delete(f.removePersonFromUser);
+  .put(f.removePersonFromUser);
 
 router.route('/gift/:giftID')
   .put(f.buyGift)

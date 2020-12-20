@@ -46,6 +46,8 @@ export const addPersonToUser = (req, res) => {
 // remove person from user
 // req.body = { personID: the person ID}
 export const removePersonFromUser = (req, res) => {
+  console.log('body');
+  console.log(req.body);
   fs.removePersonFromUser(req.params.username, req.body.personID)
     .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {

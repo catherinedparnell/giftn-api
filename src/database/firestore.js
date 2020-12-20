@@ -105,7 +105,7 @@ export async function getUser(username) {
 // add gift to person: takes person id and gift!
 // gift looks like this:
 // const gift = {
-//     name: 'name',
+//     giftName: 'name',
 //     price: 'price',
 //     link: 'link',
 //     id: unique identifier,
@@ -114,7 +114,7 @@ export async function addGiftToPerson(personID, gift) {
   const personRef = db.collection('people').doc(personID);
   const res = await personRef.update({
     [`giftInfo.${gift.id}`]: {
-      name: gift.giftName,
+      giftName: gift.giftName,
       price: gift.price,
       bought: false,
       link: gift.link,

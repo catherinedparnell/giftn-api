@@ -113,7 +113,7 @@ export const checkUser = (req, res) => {
 };
 
 // adds tracking number to user
-// req.body = { trackingNumberObject: { trackingNumber, note, person } }
+// req.body = { trackingNumberObject: { trackingNumber, note, person, carrier } }
 export const addTrackingNumberToUser = (req, res) => {
   fs.addTrackingNumberToUser(req.params.username, req.body.trackingNumberObject)
     .then(() => { res.send({ message: 'this worked' }); })

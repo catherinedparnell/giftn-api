@@ -14,7 +14,11 @@ const trackingNumberTest2 = '1Z5338FF0107231059';
 // no req.body
 export const getUPS = (req, res) => {
   axios.get(`${UPS_API}${trackingNumberTest2}`, {
-    headers: { AccessLicenseNumber: process.env.UPS_ACCESS_KEY },
+    headers: {
+      Username: 'jordantsanz',
+      Password: 'Jord@nTs19',
+      AccessLicenseNumber: process.env.UPS_ACCESS_KEY,
+    },
   })
     .then((response) => {
       if (response.data.trackResponse.shipment.warnings) {

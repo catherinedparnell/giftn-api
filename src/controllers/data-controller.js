@@ -44,7 +44,7 @@ export const addPersonToUser = (req, res) => {
 };
 
 // remove person from user
-// req.body = { personID: the person ID}
+// req.body = { personID: the person ID }
 export const removePersonFromUser = (req, res) => {
   console.log('body');
   console.log(req.body);
@@ -56,7 +56,7 @@ export const removePersonFromUser = (req, res) => {
 };
 
 // add flag to gift in gift info if bought
-// req.body = { personID: the person ID}
+// req.body = { personID: the person ID }
 export const buyGift = (req, res) => {
   fs.buyGift(req.body.personID, req.params.giftID)
     .then(() => { res.send({ message: 'this worked' }); })
@@ -66,7 +66,7 @@ export const buyGift = (req, res) => {
 };
 
 // remove flag from gift if bought
-// req.body = { personID: the person ID}
+// req.body = { personID: the person ID }
 export const wishlistGift = (req, res) => {
   console.log(req);
   fs.wishlistGift(req.body.personID, req.params.giftID)
@@ -77,7 +77,7 @@ export const wishlistGift = (req, res) => {
 };
 
 // add/update budget in user
-// req.body = { budget: 100}
+// req.body = { budget: 100 }
 export const updateBudget = (req, res) => {
   fs.updateBudget(req.params.username, req.body.budget)
     .then(() => { res.send({ message: 'this worked' }); })

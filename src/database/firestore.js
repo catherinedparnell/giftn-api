@@ -110,7 +110,7 @@ export async function addGiftToPerson(personID, gift) {
   const personRef = db.collection('people').doc(personID);
   const res = await personRef.update({
     [`giftInfo.${gift.id}`]: {
-      name: gift.name,
+      name: gift.giftName,
       price: gift.price,
       bought: false,
       link: gift.link,

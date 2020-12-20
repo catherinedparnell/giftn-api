@@ -49,7 +49,7 @@ It services **giftn's** web app and Chrome extension.
 
 * `/getTracking/`
   
-  GET - get ups tracking status
+  GET - get UPS tracking status
 
 * `/mail/`
 

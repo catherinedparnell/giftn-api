@@ -41,13 +41,17 @@ export async function checkUser(username) {
 //     id: id,
 // }
 export async function addPersonToUser(username, person) {
-  const ref = await db.collection('people').doc(person.id).set(person)
+  console.log(person);
+  await db.collection('people').doc(person.id).set(person)
     .catch((e) => {
       console.log(e);
     });
+  const peopleRef = db.collection('people').doc(person.id);
   const userRef = db.collection('users').doc(username);
+  console.log('id:');
+  console.log(peopleRef);
   const unionRes = await userRef.update({
-    people: admin.firestore.FieldValue.arrayUnion(ref),
+    people: admin.firestore.FieldValue.arrayUnion(peopleRef),
   })
     .catch((e) => {
       console.log(e);

@@ -1,4 +1,6 @@
 # giftn API
+![giftn Logo](/images/logo.png)
+Format: ![Alt Text](url)
 ## Summary
 This pandemic’s stressful enough without holiday shopping! **giftn** is an all-in-one application allowing users to easily track their gift lists, budgeting, and package deliveries.
 We want to make planning for COVID-Christmas feel like a breeze.

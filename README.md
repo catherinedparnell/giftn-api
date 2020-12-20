@@ -55,5 +55,5 @@ This API was built to handle CRUD operations to and from Google Cloud's Cloud Fi
 
 * `/mail/`
 
-  PUT - send automated email `req.body = { toAddress: recipient email, toName: name of who it's to, fromName: name of who it's from, message: personalized note, trackingNumber: valid tracking number }`
+  PUT - send automated email `req.body = { toAddress: recipient email, toName: name of who it's to, fromName: name of who it's from, trackingNumber: valid tracking number }`
  

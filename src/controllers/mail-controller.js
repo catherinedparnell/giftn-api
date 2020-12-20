@@ -33,7 +33,7 @@ export const getUPS = (req, res) => {
 };
 
 // sends automated email from mailgun
-// req.body = { toAddress: recipient email, toName: name of who it's to, fromName: name of who it's from, message: personalized note, trackingNumber: valid tracking number }
+// req.body = { toAddress: recipient email, toName: name of who it's to, fromName: name of who it's from, trackingNumber: valid tracking number }
 export const sendEmail = (req, res) => {
   const mg = mailgun({ apiKey: process.env.MAILGUN_API, domain: DOMAIN });
   const data = {
@@ -53,7 +53,7 @@ export const sendEmail = (req, res) => {
       <div className="pink-box">
         <div className="to-box"> To: ${req.body.toName} </div>
         <div className="from-box"> From: ${req.body.fromName} </div>
-        <div className="message-box">${req.body.message}</div>
+        <div className="message-box">Happy Holidays! Hope you enjoy your gift.</div>
       </div>
       <div className="tracking-number-box">${req.body.trackingNumber}</div>
     </div>

@@ -68,6 +68,7 @@ export const buyGift = (req, res) => {
 // remove flag from gift if bought
 // req.body = { personID: the person ID}
 export const wishlistGift = (req, res) => {
+  console.log(req);
   fs.wishlistGift(req.body.personID, req.params.giftID)
     .then(() => { res.send({ message: 'this worked' }); })
     .catch((e) => {

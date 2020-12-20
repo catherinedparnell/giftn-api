@@ -17,8 +17,10 @@ router.route('/person/:username')
   .put(f.removePersonFromUser);
 
 router.route('/gift/:giftID')
-  .put(f.buyGift)
-  .delete(f.wishlistGift);
+  .put(f.buyGift);
+
+router.route('/wishlist/:giftID')
+  .put(f.wishlistGift);
 
 router.route('/budget/:username')
   .put(f.updateBudget);

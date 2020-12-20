@@ -1,6 +1,6 @@
 # giftn API
 ## Summary
-This pandemic’s stressful enough without holiday shopping! **giftn** is an all-in-one application allowing users to easily track their gift lists, budgeting, and package deliveries.
+This pandemic is stressful enough without holiday shopping! **giftn** is an all-in-one application allowing users to easily track their gift lists, budgeting, and package deliveries.
 We want to make planning for COVID-Christmas feel like a breeze.
 
 This API was built to handle CRUD operations to and from Google Cloud's Cloud Firestore database, as well as make API calls to external companies to get tracking number related information and send sutomated emails.

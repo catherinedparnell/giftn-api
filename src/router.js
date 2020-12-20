@@ -34,7 +34,7 @@ router.route('/check/:username')
 
 router.route('/tracking/:username')
   .post(f.addTrackingNumberToUser)
-  .delete(f.removeTrackingNumberFromUser);
+  .put(f.removeTrackingNumberFromUser);
 
 router.route('/getTracking/')
   .get(mail.getUPS);

@@ -45,7 +45,7 @@ It services **giftn's** web app and Chrome extension.
 
 * `/tracking/:username`
 
-  POST - adds tracking number to user `req.body = { trackingNumberObject: { trackingNumber, note, person } }`
+  POST - adds tracking number to user `req.body = { trackingNumberObject: { trackingNumber: a valid tracking number , note: for the user to note what the gift is, person: name of person gift is for, carrier: UPS, FedEx, etc } }`
   
   PUT - removes tracking number from user `req.body = { trackingNumber: tracking number }`
 
